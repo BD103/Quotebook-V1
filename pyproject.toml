@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "quotebook"
+version = "0.1.0"
+description = "Quotebook for all your quotes"
+authors = ["BD103 <dont@stalk.me>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^2.0.2"
+Flask-WTF = "^1.0.0"
+Flask-SQLAlchemy = "^2.5.1"
+Flask-Compress = "^1.10.1"
+Flask-Login = "^0.5.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.12b0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+extend-exclude = '''
+/(
+    | .venv
+)/
+'''
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

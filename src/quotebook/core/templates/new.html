@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}New Quote | Quotebook{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <form method="POST" action="/new" autocomplete="off">
+      {{ form.csrf_token }}
+
+      <div class="field">
+        {{ form.quote.label }}
+        <div class="control">{{ form.quote(class_="input") }}</div>
+      </div>
+
+      <div class="field">
+        {{ form.quotee.label }}
+        <div class="control">{{ form.quotee(class_="input") }}</div>
+      </div>
+
+      <div class="field">
+        <div class="control">{{ form.submit(class_="button is-link") }}</div>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
