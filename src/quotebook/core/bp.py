@@ -17,7 +17,7 @@ bp = Blueprint(
 
 @bp.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.jinja2")
 
 
 @bp.route("/quote/")
@@ -31,12 +31,14 @@ def view_quote(id: int = None):
     if existing_quote is None:
         return redirect(url_for("core.all_quotes"))
 
-    return render_template("view.html", quote=existing_quote)
+    return render_template("view.jinja2", quote=existing_quote)
 
 
 @bp.route("/all")
 def all_quotes():
-    return render_template("all.html", quotes=Quote.query.order_by(Quote.id.desc()).all())
+    return render_template(
+        "all.jinja2", quotes=Quote.query.order_by(Quote.id.desc()).all()
+    )
 
 
 @bp.route("/new", methods=["GET", "POST"])
@@ -57,4 +59,4 @@ def new_quote():
 
         return redirect(url_for("core.view_quote", id=existing_quote.id, exists=True))
 
-    return render_template("new.html", form=form)
+    return render_template("new.jinja2", form=form)

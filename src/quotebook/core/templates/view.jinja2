@@ -1,0 +1,31 @@
+{% extends "base.jinja2" %}
+
+{% block title %}{{ quote.quote }} | Quotebook{% endblock %}
+
+{% block content %}
+  <section class="hero is-primary is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        {% if request.args.get("exists") %}
+          <article class="message is-warning">
+            <div class="message-header">
+              <p>Warning</p>
+            </div>
+            <div class="message-body">
+              The quote you tried creating already exists.
+            </div>
+          </article>
+        {% endif %}
+
+        <div class="box">
+          <p class="is-size-3 has-text-centered is-italic">
+            &ldquo;{{ quote.quote }}&rdquo;
+          </p>
+          <p class="has-text-right has-text-grey">
+            ~<span class="has-text-primary">{{ quote.quotee }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

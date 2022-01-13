@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Quotebook{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+  <nav class="navbar is-primary">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">Quotebook</a>
+
+      <a class="navbar-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/new">New</a>
+        <a class="navbar-item" href="/all">View All</a>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}
+    <section class="hero is-fullheight-with-navbar">
+      <div class="hero-body">
+        <p class="subtitle">
+          (;^.^) This page isn't implemented yet...
+        </p>
+      </div>
+    </section>
+  {% endblock %}
+</body>
+
+</html>
