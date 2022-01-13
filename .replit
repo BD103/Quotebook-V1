@@ -1,3 +1,3 @@
-# run = "poetry run flask run -h 0.0.0.0"
-run = "echo nope lol"
+run = "poetry run flask run -h 0.0.0.0"
+# run = "echo nope lol"
 language = "nix"
