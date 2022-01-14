@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "quotebook"
-version = "0.2.0"
+version = "0.3.0"
 description = "Quotebook for all your quotes"
 authors = ["BD103 <dont@stalk.me>"]
 license = "Apache-2.0"
