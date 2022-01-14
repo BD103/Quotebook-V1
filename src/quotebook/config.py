@@ -25,9 +25,9 @@ class Configuration(object):
             # Require authentication to view quotes
             ("QB_AUTH_VIEW", False),
             # Requires authentication to create quotes
-            ("QB_AUTH_CREATE", True)
+            ("QB_AUTH_CREATE", True),
             # Pre-created quotees to be supplied
-            ("QB_QUOTEES", [])
+            ("QB_QUOTEES", []),
             # List of usernames with admin powers
             ("QB_ADMINS", []),
         ]
