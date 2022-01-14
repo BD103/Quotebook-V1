@@ -1,12 +1,13 @@
 from flask import Flask
 
-from quotebook.bridge import compress, csrf, db, login_manager
+from quotebook.bridge import compress, configuration, csrf, db, login_manager
 from quotebook.core.bp import bp as core_bp
 
 
 def create_app(name: str) -> Flask:
     app = Flask(name)
-    app.config.from_object("quotebook.config.Default")
+    # Config first, everything else later
+    configuration.init_app(app)
 
     app.register_blueprint(core_bp)
 
