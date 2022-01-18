@@ -4,7 +4,7 @@ except ImportError:
     # For when brotli not correctly installed
     class Compress(object):
         def __init__(self, app=None):
-            pass
+            self.init_app(app)
 
         def init_app(self, app):
             pass
