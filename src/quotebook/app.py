@@ -1,8 +1,8 @@
 from flask import Flask
 
+from quotebook.__version__ import __version__
 from quotebook.bridge import compress, configuration, csrf, db, login_manager
 from quotebook.core.bp import bp as core_bp
-from quotebook.__version__ import __version__
 
 
 def create_app(name: str) -> Flask:
@@ -18,7 +18,7 @@ def create_app(name: str) -> Flask:
 
     with app.app_context():
         db.create_all()
-    
+
     @app.context_processor
     def inject_version():
         return dict(version=__version__)
