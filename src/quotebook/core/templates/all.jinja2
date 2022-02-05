@@ -5,18 +5,28 @@
 {% block content %}
   <section class="section">
     <div class="container">
-      {% for quote in quotes %}
-        <div class="box">
-          <p class="is-size-5 has-text-centered is-italic">
-            <a href="{{ url_for('core.view_quote', id=quote.id) }}" class="has-text-dark">
-              &ldquo;{{ quote.quote }}&rdquo;
-            </a>
-          </p>
-          <p class="has-text-right has-text-grey">
-          ~<span class="has-text-primary">{{ quote.quotee }}</span>
-          </p>
-        </div>
-      {% endfor %}
+      {% if quotes | length == 0 %}
+        <section class="hero is-medium">
+          <div class="hero-body">
+            <p class="subtitle">
+              There are no quotes yet, maybe <a href="{{ url_for('.new_quote') }}">create one</a>?
+            </p>
+          </div>
+        </section>
+      {% else %}
+        {% for quote in quotes %}
+          <div class="box">
+            <p class="is-size-5 has-text-centered is-italic">
+              <a href="{{ url_for('core.view_quote', id=quote.id) }}" class="has-text-dark">
+                &ldquo;{{ quote.quote }}&rdquo;
+              </a>
+            </p>
+            <p class="has-text-right has-text-grey">
+            ~<span class="has-text-primary">{{ quote.quotee }}</span>
+            </p>
+          </div>
+        {% endfor %}
+      {% endif %}
     </div>
   </section>
 {% endblock %}
