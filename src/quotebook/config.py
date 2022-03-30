@@ -3,12 +3,16 @@ import os
 
 class Default(object):
     # Flask
-    SECRET_KEY = os.getenv("SECRET_KEY")
+    PREFERRED_URL_SCHEME = "https"
 
     # SQLAlchemy
     SQLALCHEMY_DATABASE_URI = "sqlite:///qb.db"
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Caching
+    CACHE_TYPE = "redislite_cache.RedisliteCache"
+    CACHE_DEFAULT_TIMEOUT = 300
 
 
 class Configuration(object):
@@ -17,20 +21,7 @@ class Configuration(object):
             self.init_app(app)
 
     def init_app(self, app):
-        defaults = [
-            # Allow creating new users
-            ("QB_ENABLE_SIGNUPS", True),
-            # Allow creating new quotees
-            ("QB_QUOTEE_CREATION", True),
-            # Require authentication to view quotes
-            ("QB_AUTH_VIEW", False),
-            # Requires authentication to create quotes
-            ("QB_AUTH_CREATE", True),
-            # Pre-created quotees to be supplied
-            ("QB_QUOTEES", []),
-            # List of usernames with admin powers
-            ("QB_ADMINS", []),
-        ]
+        defaults = []
 
         for k, v in defaults:
             app.config.setdefault(k, v)
