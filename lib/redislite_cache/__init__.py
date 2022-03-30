@@ -22,10 +22,7 @@ class RedisliteCache(BaseCache):
     def factory(cls, app, config, args, kwargs):
         # Use os.path.join(app.instance_path, "cache.db")
         # for saving the database
-        app.config.setdefault(
-            "CACHE_REDISLITE_LOCATION",
-            None
-        )
+        app.config.setdefault("CACHE_REDISLITE_LOCATION", None)
 
         return cls(app.config["CACHE_REDISLITE_LOCATION"], *kwargs)
 

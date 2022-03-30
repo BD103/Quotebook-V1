@@ -6,7 +6,6 @@ from quotebook.bridge import db
 from quotebook.forms import QuoteForm
 from quotebook.models import Quote
 
-
 bp = Blueprint(
     "core",
     __name__,

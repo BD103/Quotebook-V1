@@ -1,4 +1,3 @@
-
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
@@ -18,6 +17,7 @@ except ImportError:
             app.logger.info(
                 "Compression is not enabled. Your computer may not support C modules."
             )
+
 
 config = Configuration()
 db = SQLAlchemy()

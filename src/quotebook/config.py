@@ -1,6 +1,3 @@
-import os
-
-
 class Default(object):
     # Flask
     PREFERRED_URL_SCHEME = "https"

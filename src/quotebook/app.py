@@ -1,8 +1,8 @@
 from flask import Flask
 
 from quotebook.__version__ import __version__
-from quotebook.bridge import config, db, login_manager, csrf, compress
 from quotebook.bp import bp
+from quotebook.bridge import compress, config, csrf, db, login_manager
 
 
 def create_app(name: str) -> Flask:
