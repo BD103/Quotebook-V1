@@ -1,3 +1,19 @@
 run = "poetry run flask run -h 0.0.0.0"
-# run = "echo nope lol"
 language = "nix"
+hidden = [
+    ".venv",
+    ".config",
+    ".caching",
+    "**/__pycache__",
+    "**/*.pyc",
+    ".flake8",
+    ".gitignore",
+    ".prettierignore",
+    "poetry.toml"
+]
+
+[nix]
+channel = "stable-21_11"
+
+[env]
+LD_LIBRARY_PATH = "${PYTHON_LD_LIBRARY_PATH}:${LD_LIBRARY_PATH}"
