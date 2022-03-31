@@ -28,6 +28,18 @@
     </div>
   </nav>
 
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <section class="section">
+        {% for message in messages %}
+          <div class="notification">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </section>
+    {% endif %}
+  {% endwith %}
+
   {% block content %}
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">

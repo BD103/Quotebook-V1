@@ -2,7 +2,7 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
 
-from quotebook.config import Configuration
+from quotebook.config import Config
 
 try:
     from flask_compress import Compress
@@ -19,7 +19,7 @@ except ImportError:
             )
 
 
-config = Configuration()
+config = Config()
 db = SQLAlchemy()
 login_manager = LoginManager()
 csrf = CSRFProtect()
