@@ -1,9 +1,10 @@
 from flask import Flask
 
 from quotebook.__version__ import __version__
+from quotebook.auth import auth_bp
 from quotebook.bp import bp
 from quotebook.bridge import compress, config, csrf, db, login_manager
-from quotebook.auth import auth_bp
+
 
 def create_app(name: str) -> Flask:
     app = Flask(name)

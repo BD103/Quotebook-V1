@@ -1,4 +1,5 @@
 import datetime
+
 import click
 from flask import Blueprint, current_app, flash, redirect, render_template, url_for
 from flask_login import current_user, login_required, login_user, logout_user
@@ -7,17 +8,13 @@ from quotebook.bridge import db, login_manager
 from quotebook.forms import LoginForm
 from quotebook.models import User
 
-
-auth_bp = Blueprint(
-    "auth",
-    __name__,
-    template_folder = "templates"
-)
+auth_bp = Blueprint("auth", __name__, template_folder="templates")
 
 
 # Routing
 
-@auth_bp.route("/login", methods = ["GET", "POST"])
+
+@auth_bp.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
         flash("Already logged in")
@@ -48,6 +45,7 @@ def logout():
 
 # Flask-Login
 
+
 @login_manager.user_loader
 def load_user(id_):
     if id_ is not None:
@@ -65,6 +63,7 @@ def unauthorized():
 # CLI
 
 auth_bp.cli.short_help = auth_bp.cli.help = "Manage registered accounts."
+
 
 def _abort_if_false(ctx, param, value):
     if not value:
