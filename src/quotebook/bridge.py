@@ -5,7 +5,7 @@ from flask_wtf.csrf import CSRFProtect
 from quotebook.config import Configuration
 
 try:
-    from flask_compres import Compress
+    from flask_compress import Compress
 except ImportError:
     # Some computers do not support C modules
     class Compress(object):
